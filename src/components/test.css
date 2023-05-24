@@ -1,0 +1,27 @@
+.form-container {
+    border: 1px solid #dbe1e4;
+    background-color:#dbe1e4;
+    padding: 20px;
+    border-radius: 5px;
+    width: 600px;
+    margin-top:100px;
+    margin-left: 500px;
+    box-shadow: 4px 4px 4px rgba(180, 180, 180, 0.6);
+  }
+  
+  .form-question {
+    margin-bottom: 10px;
+
+  }
+  
+  label {
+    display: flex;
+    align-content:flex-start;
+
+  }
+  input{
+    width: 400px;
+    display: flex;
+    align-content: center;
+  }
+  
