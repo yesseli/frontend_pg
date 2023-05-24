@@ -1,22 +1,68 @@
-.fondo{
-    font-style: normal;
-    font-size: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #000000;
-    padding-left: 20px;
-}
-
-.btn-inicio-test{
+.container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    background-color: #282E4E;
+  }
+  
+  .logo-img {
     display: flex;
     justify-content: center;
+    margin-top: -10%;
+  }
+  
+  .logo-img img {
+    max-width: 80%;
+  }
+  
+  .logout img {
+    max-width: 2%;
+    float: left;
+    position: fixed; 
+    bottom: 1.5%; 
+    left: 1%; 
+  }
+  
+  .logout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+
+  .content {
+    padding: 20px;
+  }
+  
+  .txt-bienvenida {
+    font-style: normal;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    margin-top: 5%;
+  }
+  .parrafo{
+    font-style: normal;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .btn-inicio-test {
     font-size: 30px;
-    background-color: #007bff;
+    background-color: #282E4E;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
     border-radius: 5px;
     cursor: pointer;
-}
-
-body {
-    background-color: rgba(255, 255, 255, 0.957);
   }
+  
