@@ -1,34 +1,46 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
 import "./test.css"
+import { useHistory } from "react-router-dom";
+
 
 function Test() {
   const [habilidad, setHabilidad] = useState('');
   const [intereses, setIntereses] = useState('');
   const [resultado, setResultado] = useState('');
+  const [modalOpen, setModalOpen] = useState(false); 
+  const history = useHistory(); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Enviar los datos al backend para la predicción
     axios.post('http://localhost:8000/prediccion', {
-      habilidades: habilidad,  // Corregir nombre de la variable
+      habilidades: habilidad,
       intereses: intereses
     })
     .then(response => {
       // Obtener la respuesta del backend y actualizar el estado del resultado
-      setResultado(response.data['profesion predicha']);  // Corregir el nombre del campo
+      setResultado(response.data['profesion predicha']);
+      setModalOpen(true); // Abrir la ventana modal
     })
     .catch(error => {
       console.error('Error al obtener la predicción:', error);
     });
   };
+
+  const closeModal = () => {
+    setModalOpen(false); // Cerrar la ventana modal
+  };
+
+  const handleGoToHome = () => {
+    history.push("/home");
+};
   
   return (
     <div className="page-container">
-      <div className="sidebar-test">
-        {/* Contenido del sidebar */}
-      </div>
+      <button className='btn-inicio' onClick={handleGoToHome}>Inicio</button>
       <div className="content">
         <div className="form-container">
           <form onSubmit={handleSubmit}>
@@ -48,11 +60,17 @@ function Test() {
           </form>
         </div>
 
-        {resultado && (
-          <div className="resultado-container">
+        <Modal
+          isOpen={modalOpen}
+          onRequestClose={closeModal}
+          contentLabel="Carrera Recomendada"
+          className="custom-modal"
+        >
+          <div className="custom-modal-content">
             <p>Tu carrera recomendada es: {resultado}</p>
+            <button onClick={closeModal}>Cerrar</button>
           </div>
-        )}
+        </Modal>
       </div>
     </div>
   );

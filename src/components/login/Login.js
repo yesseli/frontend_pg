@@ -6,7 +6,6 @@ import logo from '../../images/logo.png';
 
 function Login() {
   const history = useHistory(); 
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,10 +25,9 @@ function Login() {
       });
       console.log(response.data);
 
-      const { username } = response.data;
 
       // Redirige al /home
-      history.push("/home", { username });
+      history.push("/home");
     } catch (error) {
       console.error(error);
       setError("Correo electrónico o contraseña incorrectos");
@@ -69,8 +67,8 @@ function Login() {
         </form>
       </div>
       {error && (
-        <div className="modal">
-        <div className="modal-content">
+        <div className="modal-login">
+        <div className="modal-login-content">
           <p className="error-message">{error}</p>
           <div>
             <button className="close-button" onClick={handleCloseError}>

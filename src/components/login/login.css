@@ -16,7 +16,7 @@ input {
   margin-bottom: 10px;
   font-size: 1rem;
   width: 300px;
-height: 20px;
+  height: 20px;
 }
 
 button {
@@ -80,7 +80,7 @@ p {
   color: white;
 }
 
-.modal {
+.modal-login {
   position: fixed;
   top: 0;
   left: 0;
@@ -93,7 +93,7 @@ p {
   z-index: 9999;
 }
 
-.modal-content {
+.modal-login-content {
   border: 1px solid #dbe1e4;
   background-color:#dbe1e4;
   padding: 20px;

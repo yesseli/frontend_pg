@@ -1,8 +1,8 @@
 import React from 'react';
 import {useHistory } from "react-router-dom";
 import "./home.css";
-import logo from '../images/logo.png';
-import logout from '../images/logout.png';
+import logo from '../../images/logo.png';
+import logout from '../../images/logout.png';
 
 
 function Welcome() {
