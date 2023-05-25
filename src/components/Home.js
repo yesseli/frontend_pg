@@ -9,12 +9,12 @@ function Welcome() {
   const history = useHistory(); 
 
   const handleIniciarTest = () => {
-    history.push("/test"); // Redirige a la ruta "/test"
+    history.push("/prediccion"); 
   };
 
   return (
     <div className="container">
-      <div className='sidebar'>
+      <div className='sidebar-home'>
         <div className='logo-img'>
           <img src={logo} alt="li"/>
         </div>

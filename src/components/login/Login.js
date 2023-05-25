@@ -9,6 +9,7 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +32,12 @@ function Login() {
       history.push("/home", { username });
     } catch (error) {
       console.error(error);
+      setError("Correo electrónico o contraseña incorrectos");
     }
+  };
+
+  const handleCloseError = () => {
+    setError("");
   };
 
   return (
@@ -62,6 +68,18 @@ function Login() {
           <p>¿No tienes una cuenta? Crea una ahora</p>
         </form>
       </div>
+      {error && (
+        <div className="modal">
+        <div className="modal-content">
+          <p className="error-message">{error}</p>
+          <div>
+            <button className="close-button" onClick={handleCloseError}>
+              x
+            </button>
+          </div>
+        </div>
+      </div>
+      )}
     </div>
   );
 }
