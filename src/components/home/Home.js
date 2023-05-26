@@ -11,7 +11,7 @@ function Welcome() {
   const history = useHistory(); 
 
   const handleIniciarTest = () => {
-    history.push("/prediccion"); 
+    history.push("/predicciontwo"); 
   };
 
   const handleLogout = async () => {
