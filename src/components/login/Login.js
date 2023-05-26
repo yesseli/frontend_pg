@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
 import "./login.css";
 import axios from 'axios';
 import logo from '../../images/logo.png';
+import Cookies from 'js-cookie';
 
 function Login() {
   const history = useHistory(); 
@@ -23,7 +24,14 @@ function Login() {
           'Content-Type': 'application/json'
         }
       });
-      console.log(response.data);
+      const { message, token } = response.data;
+
+      // Almacenar el token en las cookies del navegador
+      Cookies.set('token', token, { expires: 7, path: '/', sameSite: 'none', secure: true });
+
+      console.log(message);
+      console.log(token);
+      
 
 
       // Redirige al /home
@@ -37,6 +45,7 @@ function Login() {
   const handleCloseError = () => {
     setError("");
   };
+
 
   return (
     <div className="login-page"> 
