@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import "./register.css";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import logout from '../../images/logout.png';
+import Cookies from 'js-cookie';
 
 function RegistrationForm() {
     const [name, setName] = useState('');
@@ -19,7 +21,7 @@ function RegistrationForm() {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/users');
+            const response = await axios.get('http://localhost:8000/users',{withCredentials: true});
             const responseData = response.data;
             const usersData = responseData.users;
             console.log(usersData); 
@@ -77,6 +79,16 @@ function RegistrationForm() {
         history.push("/home");
     };
 
+    const handleLogout = async () => {
+        try {
+          await axios.post('http://localhost:8000/logout');
+          Cookies.remove('token'); // Eliminar la cookie en el cliente
+          history.push('/'); // Redirigir al inicio de sesión
+        } catch (error) {
+          console.error('Error al cerrar sesión:', error);
+        }
+      };
+
     return (
         <div className='page-container'>
             <div className='sidebar-register'>
@@ -133,7 +145,11 @@ function RegistrationForm() {
                     </div>
                 </div>
             )}
-
+                <div className='logout-user'>
+                    <button onClick={handleLogout} id="btn-logout-user">
+                        <img src={logout} alt="li"/>
+                    </button>
+                </div>
             {showModal && (
                 <div className="modal">
                     <div className="modal-content">
@@ -166,7 +182,6 @@ function RegistrationForm() {
                     </div>
                 </div>
             )}
-
         </div>
     );
 }

@@ -21,21 +21,26 @@ function Login() {
         password: password
       }, {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'token': Cookies.get('token')
         }
       });
-      const { message, token } = response.data;
+      const { message, token, role } = response.data;
 
       // Almacenar el token en las cookies del navegador
       Cookies.set('token', token, { expires: 7, path: '/', sameSite: 'none', secure: true });
 
       console.log(message);
       console.log(token);
-      
-
-
+      console.log(role)
+    
       // Redirige al /home
-      history.push("/home");
+      if (role === "admin") {
+        history.push("/users");
+      } else if (role === "student") {
+        history.push("/home");
+      } else {
+      }
     } catch (error) {
       console.error(error);
       setError("Correo electrónico o contraseña incorrectos");
