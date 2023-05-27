@@ -5,6 +5,7 @@ import Home from './components/home/Home';
 import Test from './components/test/Test';
 import Test2 from './components/test/test2';
 import Register from './components/register/Register'
+import Career from './components/career/Career'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/prediccion" component={Test} />
         <Route path="/predicciontwo" component={Test2} />
         <Route path="/users" component={Register} />
+        <Route path="/careers" component={Career} />
       </Switch>
     </Router>
   );

@@ -87,6 +87,9 @@ function RegistrationForm() {
       const handleGoToHome = () => {
         history.push("/home");
     };
+    const handleGoToCareer = () => {
+        history.push("/careers");
+    };
 
     const handleLogout = async () => {
         try {
@@ -103,6 +106,7 @@ function RegistrationForm() {
             <div className='sidebar-register'>
                 <button className='btn-ver' onClick={() => { fetchUsers(); setShowModal(true); }}>Ver usuarios</button>
                 <button className='btn-home' onClick={handleGoToHome}>Inicio</button>
+                <button className='btn-ver-carreras' onClick={handleGoToCareer}>Ver carreras</button>
             </div>
             <div className='content'>
                 <div className='formulario'>
