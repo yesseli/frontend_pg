@@ -19,6 +19,15 @@ function RegistrationForm() {
         fetchUsers();
     }, []);
 
+    useEffect(() => {
+        if (!isLoggedIn ) {
+            history.push("/");
+        }
+    }, [isLoggedIn, history]);
+
+    const token = Cookies.get('token');
+    const isLoggedIn = token !== undefined && token !== null;
+
     const fetchUsers = async () => {
         try {
             const response = await axios.get('http://localhost:8000/users',{withCredentials: true});

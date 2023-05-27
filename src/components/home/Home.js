@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {useHistory } from "react-router-dom";
 import "./home.css";
@@ -9,6 +9,7 @@ import logout from '../../images/logout.png';
 
 function Welcome() {
   const history = useHistory(); 
+  
 
   const handleIniciarTest = () => {
     history.push("/predicciontwo"); 
